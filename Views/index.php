@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <Div>
+        <form method="POST"> 
+             <label for="username">Username</label>
+            <input type="text">
+        </form>
+    </Div>
 </body>
 </html>
