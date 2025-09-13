@@ -1,0 +1,17 @@
+#loginbox{
+    background-image:  linear-gradient(aqua,rgb(28, 255, 255),rgb(116, 205, 223));
+    width: 200px;
+    height: 400px;
+    padding: 30px;
+    border-radius: 30px;
+    
+    
+
+}
+.box{
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+   
+}
+ 
