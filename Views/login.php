@@ -8,10 +8,22 @@
 </head>
 <body>
     <Div class="box" >
-        <form method="POST" id="loginbox"> 
-             <label for="username">Username</label>
-            <input type="text">
-            
+        
+        <form method="POST" id="loginbox" action=""> 
+            <h1>Login</h1>
+             <div class="box1">
+                <label for="username" id="nametxt">Username</label>
+                <input type="text" id="UserName" name="userName">
+             </div>
+             <div class="box2">
+                <label for="password" id="passtxt">Password</label>
+                <input type="text" id="pass" name="password">
+             </div>
+             <div class="box3">
+                <p><u>Foget password</u></p>
+                <p id="reg"><u>Register<u></p>
+             </div>
+             <input type="submit" id="loginBtn" name="submit" value="login">
         </form>
     </Div>
 </body>

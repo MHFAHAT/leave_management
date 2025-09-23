@@ -1,17 +1,49 @@
 #loginbox{
-    background-image:  linear-gradient(aqua,rgb(28, 255, 255),rgb(116, 205, 223));
-    width: 200px;
-    height: 400px;
-    padding: 30px;
-    border-radius: 30px;
-    
-    
-
+    background: #ffff; 
+    width: 300px;
+    height: 350px;
+    padding: 20px;
+    border-radius: 30px; 
+    margin:  110px auto
 }
-.box{
+ body{
+    background: #e8e8e8; 
+ }
+.box,h1{
     display: flex;
     justify-content: center;  
     align-items: center;
    
 }
+.loginbox{
+    display: flex;
+    flex-direction: column;  
+    gap: 15px; 
+}
+ .box1 ,.box2{ 
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    padding: 5px 5px 10px 5px;
+    border-radius: 5px;
+} 
+#reg{
+    margin-left: auto;
+
+}
+.box3{
+    display: flex;
+    justify-content:space-between ; 
+}
+p{
+    font-weight: bold ;
+}
+#loginBtn{
+    font-size: 14px;
+    padding: 10px 140px 10px 130px;
+    border-radius: 15px;
+    background: #007bff;
+    color: #ffff;
+}
+
  
