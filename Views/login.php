@@ -1,3 +1,24 @@
+<?php 
+ session_start();
+ if(isset($_SESSION["userName"]))
+{
+    if($_SESSION["role"]=="admin")
+    {
+        header("Location:admin/home.php");
+    }
+    elseif($_SESSION["role"]=="manager")
+    {
+        header("Location:manager/home.php");
+    }
+    else
+    {
+        header("Location:client/home.php");   
+    }
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +30,7 @@
 <body>
     <Div class="box" >
         
-        <form method="POST" id="loginbox" action=""> 
+        <form method="POST" id="loginbox" action="../Control/authController.php"> 
             <h1>Login</h1>
              <div class="box1">
                 <label for="username" id="nametxt">Username</label>
@@ -17,7 +38,7 @@
              </div>
              <div class="box2">
                 <label for="password" id="passtxt">Password</label>
-                <input type="text" id="pass" name="password">
+                <input type="password" id="pass" name="password">
              </div>
              <div class="box3">
                 <p><u>Foget password</u></p>
