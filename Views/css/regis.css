@@ -34,10 +34,21 @@ input
     border-radius: 4px; 
 }
 
+input[type="radio"] {
+    width: auto;
+    vertical-align: middle;
+}
+.gender label {
+    display: inline;
+    font-weight: bold;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
 button 
 { 
     margin-top: 24px; 
-    width: 100%; 
+    width: 176px; 
     padding: 10px; 
     background: #007bff; color: #fff; 
     border: none; 
@@ -46,4 +57,3 @@ button
     align-items: center;
 }
         
-/*button:hover { background: #0056b3; }*/

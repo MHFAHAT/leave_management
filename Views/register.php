@@ -28,13 +28,32 @@
         <label for="address">Address</label>
         <input type="text" id="address" name="address" required> <br>
 
+        <label>Gender</label>
+        <div class="gender" style="display:inline;">
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label>
+        </div>
+        <br>
+
         <label for="role">Role</label>
-        <input type="text" id="role" name="role" required> <br>
+        <select id="role" name="role" required style="width:auto; margin-left:10px;">
+              <option value="empty">Please select one</option>                                                                      
+            <option value="admin">Admin</option>
+            <option value="manager">Manager</option>
+            <option value="employee">Employee</option>
+        </select> <br>
 
         <label for="departmentId">Department ID</label>
         <input type="number" id="departmentId" name="departmentId" required><br> 
 
-        <button type="submit"name="register">Register</button>
+        <div style="display: flex; ">
+            <button name="login">Log in</button>
+            <button type="submit"name="register">Register</button>
+        </div>
     </form>        
 
 
