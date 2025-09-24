@@ -3,7 +3,7 @@
     $user="root";
     $pass="";
     $db="leave_management";
-    $port="3306";
+    $port=3306;
 
     function getConnection()
     {
