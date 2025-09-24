@@ -42,7 +42,7 @@
              </div>
              <div class="box3">
                 <p><u>Foget password</u></p>
-                <p id="reg"><u>Register<u></p>
+                <a id="reg" href="../Views/register.php"><u>Register<u></a> 
              </div>
              <input type="submit" id="loginBtn" name="submit" value="login">
         </form>
