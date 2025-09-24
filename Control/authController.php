@@ -1,28 +1,35 @@
 <?php  
+  session_start();
   require_once("userController.php");
+ 
   $hasErr=false;
   $username="";
   $pass="";
   $nameErr="";
   $passErr="";
 
+  unset($_SESSION['nameErr']);
+  unset($_SESSION['passErr']);
+  unset($_SESSION['invalidUser']);
+
   if(($_SERVER["REQUEST_METHOD"]=="POST") && isset($_POST["submit"]))
   {
       if(empty($_POST["userName"]))
       { 
-        $nameErr= "userName cannot be empty";
+        //$nameErr= "Username cannot be empty";
+        $_SESSION['nameErr'] = "Username cannot be empty"; 
         $hasErr=true;
       }
       else
       {
         $username=$_POST["userName"];
       }
-      //add more requrement
+       
       if(empty($_POST["password"]))
       {
-        $passErr="password cannot be empty";
-        $hasErr=true;
-
+        //$passErr="Password cannot be empty";
+        $_SESSION['passErr'] = "Password cannot be empty";
+        $hasErr=true; 
       }
 
       else
@@ -32,18 +39,23 @@
 
       if($hasErr)
       {
-        header("Location:../Views/login.php?nameErr=$nameErr&passErr=$passErr");
+        //header("Location:../Views/login.php?nameErr=$nameErr&passErr=$passErr");
+        header("Location: ../Views/login.php");
+        exit();
       }
       else
       {
         $value= validateUser($username,$pass);
         if(!$value)
         {
-            header("Location:../Views/login.php?invalidUser='Invalid User.'");
+          //header("Location:../Views/login.php?invalidUser='Invalid User.'");
+          $_SESSION['invalidUser'] = "Invalid User.";
+          header("Location: ../Views/login.php");
+          exit();
         }
         else
         {
-            session_start();
+            
             $_SESSION["userName"]=$value["userName"];
             $_SESSION["fullName"]=$value["fullName"];
             $_SESSION["userId"]=$value["userId"];
@@ -60,6 +72,7 @@
             {
                 header("location:../Views/emplyee/home.php");
             }
+            exit();
         }
 
       }

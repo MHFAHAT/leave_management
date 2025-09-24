@@ -34,16 +34,31 @@
 .box3{
     display: flex;
     justify-content:space-between ; 
+    margin-bottom: 20px;
 }
 p{
     font-weight: bold ;
 }
-#loginBtn{
+#loginBtn{ 
     font-size: 14px;
-    padding: 10px 140px 10px 130px;
+    padding: 2px 140px 20px 140px;
     border-radius: 15px;
     background: #007bff;
-    color: #ffff;
+    color: #ffff;  
 }
+#nametxt,#passtxt 
+{
+    font-weight: bold;
+    font-size: 15px;
+}
+ .err
+{
+    color: red;
+    font-size: 12px;
+    height: 16px;  
+    margin-top: 3px;
+    display: block;
+}
+ 
 
  

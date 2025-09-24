@@ -15,9 +15,13 @@
         header("Location:client/home.php");   
     }
 }
-
-
-
+    $nameErr = isset($_SESSION['nameErr']) ? $_SESSION['nameErr'] : "";
+    $passErr = isset($_SESSION['passErr']) ? $_SESSION['passErr'] : "";
+    $invalidUser = isset($_SESSION['invalidUser']) ? $_SESSION['invalidUser'] : "";
+ 
+    unset($_SESSION['nameErr']);
+    unset($_SESSION['passErr']);
+    unset($_SESSION['invalidUser']);  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,16 +39,21 @@
              <div class="box1">
                 <label for="username" id="nametxt">Username</label>
                 <input type="text" id="UserName" name="userName">
+                <span class="err" name="userIderr" style="color:red;"><?php echo htmlspecialchars($nameErr); ?></span>
              </div>
              <div class="box2">
                 <label for="password" id="passtxt">Password</label>
                 <input type="password" id="pass" name="password">
+                <span class="err" name="passIderr" style="color:red;"><?php echo htmlspecialchars($passErr); ?></span>
              </div>
              <div class="box3">
-                <p><u>Foget password</u></p>
+                <a href=""><u>Foget password</u></a> 
                 <a id="reg" href="../Views/register.php"><u>Register<u></a> 
              </div>
-             <input type="submit" id="loginBtn" name="submit" value="login">
+                <span class="err" name="userIderr" style="color:red;"><?php echo htmlspecialchars($invalidUser); ?></span>
+             <div id="loginBtnContainer">
+                <input class="err" style=" margin-top: 10px" type="submit" id="loginBtn" name="submit" value="login">
+             </div>
         </form>
     </Div>
 </body>
