@@ -15,8 +15,7 @@
   if(($_SERVER["REQUEST_METHOD"]=="POST") && isset($_POST["submit"]))
   {
       if(empty($_POST["userName"]))
-      { 
-        //$nameErr= "Username cannot be empty";
+      {  
         $_SESSION['nameErr'] = "Username cannot be empty"; 
         $hasErr=true;
       }
@@ -26,8 +25,7 @@
       }
        
       if(empty($_POST["password"]))
-      {
-        //$passErr="Password cannot be empty";
+      { 
         $_SESSION['passErr'] = "Password cannot be empty";
         $hasErr=true; 
       }
@@ -38,8 +36,7 @@
       }
 
       if($hasErr)
-      {
-        //header("Location:../Views/login.php?nameErr=$nameErr&passErr=$passErr");
+      { 
         header("Location: ../Views/login.php");
         exit();
       }
@@ -47,8 +44,7 @@
       {
         $value= validateUser($username,$pass);
         if(!$value)
-        {
-          //header("Location:../Views/login.php?invalidUser='Invalid User.'");
+        { 
           $_SESSION['invalidUser'] = "Invalid User.";
           header("Location: ../Views/login.php");
           exit();
