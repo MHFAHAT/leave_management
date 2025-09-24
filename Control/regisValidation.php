@@ -37,16 +37,16 @@ if(($_SERVER["REQUEST_METHOD"]=="POST") && isset($_POST["register"]))
 {
 
 $userName = $_POST["userName"] ?? "";
-$pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%])[A-Za-z\d!@#$%]+$/';
-if (empty($userName) && !preg_match($pattern, $userName)) {
+$pattern = '/^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]+$/'; 
+if (empty($userName)) {
     $hasErr = true;
-    if (empty($userName)) {
-        $_SESSION["userNameErr"] = "*Username Required";
-    } else {
-        $_SESSION["userNameErr"] = "*Username must contain at least 1 uppercase, 1 lowercase, 1 number, and 1 special character";
-    }
+    $_SESSION["userNameErr"] = "*Username Required";
+} elseif (!preg_match($pattern, $userName)) {
+    $hasErr = true;
+    $_SESSION["userNameErr"] = "*Username must contain at least 1 uppercase letter and 1 number";
+} else {
+    $userName = $_POST["userName"];
 }
-
     if (empty($_POST["fullName"])&&!preg_match("/^[a-zA-Z ]+$/", $_POST["fullName"])) {
         $hasErr = true;
        // $fullNameErr = "*Full Name Required";
@@ -55,32 +55,52 @@ if (empty($userName) && !preg_match($pattern, $userName)) {
         $fullName = $_POST["fullName"];
     }
 
-    if (empty($_POST["password"]) &&
-    !preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%]).+$/", $_POST["password"])) 
+    if (empty($_POST["password"])) 
     {
     $hasErr = true;
-   // $passwordErr = "*Password Required (must contain at least 1 lowercase, 1 uppercase, 1 digit, and 1 special char {!@#$%})";
-    $_SESSION["passwordErr"] = "*Password Required (must contain at least 1 lowercase, 1 uppercase, 1 digit, and 1 special char";
+   // $passwordErr = "*Password Required contain at least 1 uppercase letter and 1 number";
+    $_SESSION["passwordErr"] = "*Password Required must contain at least 1 uppercase letter and 1 number";
     } 
+    else if (!preg_match($pattern, $_POST["password"])) {
+        $hasErr = true;
+        $_SESSION["passwordErr"] = "*Password must contain at least 1 uppercase letter and 1 number";
+    }
     else {
     $password = $_POST["password"];
     }
 
-    if (empty($_POST["email"]) && !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+
+
+
+    if (empty($_POST["email"])) {
         $hasErr = true;
        // $emailErr = "*Valid Email Required";
         $_SESSION["emailErr"] = "*Valid Email Required";
-    } else {
+    } 
+    else if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+        $hasErr = true;
+       // $emailErr = "*Valid Email Required";
+        $_SESSION["emailErr"] = "*Valid Email Required";
+    }
+    else {
         $email = $_POST["email"];
     }
 
-    if (empty($_POST["phone"]) && !preg_match("/^[0-9]{10}$/", $_POST["phone"])) {
+
+    if (empty($_POST["phone"])) {
         $hasErr = true;
         //$phoneErr = "*Valid 11-digit Phone Number Required";
         $_SESSION["phoneErr"] = "*Valid 11-digit Phone Number Required";
-    } else {
+    } 
+    else if (!preg_match("/^[0-9]{11}$/", $_POST["phone"])) {
+        $hasErr = true;
+        //$phoneErr = "*Valid 11-digit Phone Number Required";
+        $_SESSION["phoneErr"] = "*Valid 11-digit Phone Number Required";
+    }
+    else {
         $phone = $_POST["phone"];
     }
+
 
     if (empty($_POST["address"])) {
         $hasErr = true;
@@ -137,6 +157,7 @@ if(!$hasErr)
     ];
     
     if (addUser($useR)) {
+        session_destroy();
         header("Location:../Views/login.php");
         exit();
     } 
