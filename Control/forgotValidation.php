@@ -86,8 +86,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
             
         if (verifyUserCredentials($userName, $email, $phone)) 
         {
-        if (updatePassword($userData)) {
-        // Set success message for login page
+        if (updatePassword($userData)) 
+        {
         $_SESSION['success_message'] = "Password updated successfully! Please login with your new password.";
         // Clear all error messages from session
         unset($_SESSION['userNameErr']);
@@ -95,7 +95,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         unset($_SESSION['emailErr']);
         unset($_SESSION['phoneErr']);
         unset($_SESSION['error_message']);
-        // Ensure redirect is working
         header("Location: ../Views/login.php");
         exit();
         } 
@@ -107,7 +106,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         }   
         else 
         {
-        // Credentials don't match
         $_SESSION['error_message'] = "Invalid credentials. Please check your username, email, and phone number.";
         header("Location: ../Views/forgotpass.php");
         exit();
@@ -115,6 +113,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
 
     }
 }
- 
+
 
 ?>

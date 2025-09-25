@@ -1,6 +1,6 @@
 <?php 
- session_start();
- if(isset($_SESSION["userName"]))
+session_start();
+if(isset($_SESSION["userName"]))
 {
     if($_SESSION["role"]=="admin")
     {

@@ -159,7 +159,17 @@ if(!$hasErr)
     ];
     
     if (addUser($useR)) {
-        session_destroy();
+        //session_destroy();
+        unset($_SESSION["userNameErr"]);
+        unset($_SESSION["fullNameErr"]);
+        unset($_SESSION["passwordErr"]);
+        unset($_SESSION["emailErr"]);
+        unset($_SESSION["phoneErr"]);
+        unset($_SESSION["addressErr"]);
+        unset($_SESSION["genderErr"]);
+        unset($_SESSION["roleErr"]);
+        // Set success message in session
+        $_SESSION['success_message'] = "Registered successfully!";
         header("Location:../Views/login.php");
         exit();
     } 
