@@ -9,6 +9,10 @@
     {
         return insertUser($useR);
     }
+    
+    function  leavePolicies() {
+    return displaypolicy();
+}
 
     function verifyUserCredentials($userName, $email, $phone) 
     {
