@@ -10,4 +10,14 @@
         return insertUser($useR);
     }
 
+    function verifyUserCredentials($userName, $email, $phone) 
+    {
+    return verifyUser($userName, $email, $phone);
+    }
+    
+    function updatePassword($userData) 
+    {
+    return updateUserPassword($userData);
+    }
+    
 ?>

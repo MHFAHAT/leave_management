@@ -28,4 +28,27 @@
             )";
             return mysqli_query($conn, $sql);
     }
+
+    function verifyUser($userName, $email, $phone) 
+    {
+    $conn = getConnection();
+    $sql = "SELECT * FROM usertabel WHERE userName = '$userName' AND email = '$email' AND phone = '$phone'";
+    $result = mysqli_query($conn, $sql);
+    $userExists = (mysqli_num_rows($result) > 0);
+    mysqli_close($conn);
+    return $userExists;
+    }
+    
+    function updateUserPassword($userData) 
+    {
+    $conn = getConnection();
+    $sql = "UPDATE usertabel SET password = '{$userData['newPassword']}' 
+            WHERE userName = '{$userData['userName']}' 
+            AND email = '{$userData['email']}' 
+            AND phone = '{$userData['phone']}'";
+    $result = mysqli_query($conn, $sql);
+    $affectedRows = mysqli_affected_rows($conn);
+    mysqli_close($conn);
+    return $affectedRows > 0;
+    }
 ?>

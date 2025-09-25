@@ -80,8 +80,9 @@ unset($_SESSION['roleErr']);
         <input type="number" id="departmentId" name="departmentId" required><br>  -->
 
         <div style="display: flex; justify-content:space-between ;">
-            <button name="login">Log in</button>
-            <button type="submit"name="register">Register</button>
+            <button type="button" name="login" onclick="location.href='../Views/login.php'">Log in</button>
+        
+            <button type="submit" name="register" >Register</button>
         </div>
     </form>        
 

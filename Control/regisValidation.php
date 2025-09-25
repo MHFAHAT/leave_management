@@ -47,6 +47,8 @@ if (empty($userName)) {
 } else {
     $userName = $_POST["userName"];
 }
+
+
     if (empty($_POST["fullName"])&&!preg_match("/^[a-zA-Z ]+$/", $_POST["fullName"])) {
         $hasErr = true;
        // $fullNameErr = "*Full Name Required";
