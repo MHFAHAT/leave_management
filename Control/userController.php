@@ -9,5 +9,9 @@
     {
         return insertUser($useR);
     }
+    
+    function  leavePolicies() {
+    return displaypolicy();
+}
 
 ?>

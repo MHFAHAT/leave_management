@@ -66,7 +66,7 @@
             }
             else
             {
-                header("location:../Views/emplyee/home.php");
+                header("location:../Views/employee/home.php");
             }
             exit();
         }

@@ -28,4 +28,20 @@
             )";
             return mysqli_query($conn, $sql);
     }
+    function displaypolicy()
+    {
+        $conn=getConnection();
+        $sql = "SELECT policyId, leaveId, discription FROM leavepolicy_tabel";
+        $result= mysqli_query($conn, $sql);
+        $policies = [];
+        if ($result && mysqli_num_rows($result) > 0) 
+        { 
+            while ($row = mysqli_fetch_assoc($result)) 
+           {
+            $policies[] = $row;
+           }
+        }
+    return $policies;
+
+    }
 ?>

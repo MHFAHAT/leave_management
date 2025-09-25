@@ -10,9 +10,9 @@
     {
         header("Location:manager/home.php");
     }
-    else
+    elseif($_SESSION["role"]=="employee")
     {
-        header("Location:client/home.php");   
+        header("Location:employee/home.php");   
     }
 }
     $nameErr = isset($_SESSION['nameErr']) ? $_SESSION['nameErr'] : "";
