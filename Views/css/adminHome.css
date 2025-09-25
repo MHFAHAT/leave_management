@@ -93,6 +93,7 @@ body
     padding: 20px;
     display: block;
     grid-column: 1;
+    grid-row: 1; 
 
 }  
 
@@ -101,5 +102,19 @@ body
     border-radius: 15px;
     padding: 20px;
     margin-top: 20px;
-     grid-column: 2 / -1;
+    grid-column: 2 / -1;
+    grid-row: 1; 
+    display: none;
+}
+#department
+{    
+  background: #fffefe;
+   grid-row: 2;
+   margin-top: 20px;
+   border-radius: 15px;
+  
+
+}
+#userinfo{
+    display: none;
 }

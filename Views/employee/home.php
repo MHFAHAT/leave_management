@@ -1,26 +1,23 @@
 <?php
 session_start();
 require_once("../../Model/userModel.php");
-     if(isset($_SESSION["userId"]))
+if(isset($_SESSION["userId"]))
+{
+    if(isset($_SESSION["role"])=="employee")
     {
-        if(isset($_SESSION["role"])=="employee")
-        {
-            
-        }
-
-        else
-        {
-            header("Location:../login.php");
-        } 
+        
     }
-
     else
     {
         header("Location:../login.php");
-    }  
-    $policies = displaypolicy();
-     //echo "<a href='../logout.php'>logout</a>";
-
+    } 
+}
+else
+{
+    header("Location:../login.php");
+}  
+$policies = displaypolicy();
+//echo "<a href='../logout.php'>logout</a>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +25,7 @@ require_once("../../Model/userModel.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emplyee Home</title>
-    <link rel="stylesheet" href="../css/adminHome.css">
+    <link rel="stylesheet" href="../css/adminHome.css"> 
 </head>
 <body>
     <div class="navbar">
@@ -42,7 +39,6 @@ require_once("../../Model/userModel.php");
         <img id="profileImg" src="../assets/user.png" alt="" >
         <p style="font-weight: bold">Profile</p> 
       </button>
-
       </div>
       
       <div id="logContainer">
@@ -50,10 +46,9 @@ require_once("../../Model/userModel.php");
         <img id="logoutImg" src="../assets/logout.png" alt="" >
         <p style="font-weight: bold">Logout</p> 
       </button>
-         
       </div>
+    </div>
 
-</div>
     <div id="mainContent">
         <div id="tabel">
         <h3>Leave Policies</h3>
@@ -78,11 +73,16 @@ require_once("../../Model/userModel.php");
         </table>
         </div>
         <div id="requestFrom"> 
-                      <p>request area</p>
+            <p>request area</p>
+        </div>
+        <div id="department">
+            <h1>hello</h1>
         </div>
     </div>
-    
-</div>
+    <div id="userinfo">
+         <p>user info</p>
+    </div>
+   <script src="../js/employee.js" ></script>
 
 </body>
 </html>
